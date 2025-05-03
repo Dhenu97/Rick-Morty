@@ -13,14 +13,7 @@ A UIKit-based iOS application that fetches and displays characters, episodes, an
 📲 Adaptive layout support for iPhones
 
 🚀 Live Preview
-(You can add screenshots here)
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.44.03.png
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.42.18.png
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.42.09.png
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.42.04.png
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.41.59.png
-/Users/dhenu/Desktop/Simulator Screenshot - iPhone 16 Pro - 2025-05-02 at 17.42.27.png
-/Users/dhenu/Desktop/Simulator Screen Recording - iPhone 16 Pro - 2025-05-02 at 17.45.13.mp4
+
 
 🧱 Project Structure
 📡 Networking
