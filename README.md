@@ -16,6 +16,15 @@ A modular UIKit-based iOS application that fetches and displays characters, epis
 
 ---
 
+## 🎥 App Demo
+
+Here’s a quick walkthrough of the app in action:
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-03 at 12 05 34](https://github.com/user-attachments/assets/5ba617b9-465f-4c1d-b1ed-0e587e603020)
+
+![Simulator Screen Recording - iPhone 16 Pro - 2025-05-03 at 12 06 08](https://github.com/user-attachments/assets/b050e2ea-7c14-4788-a614-b5970f0f720b)
+
+
+
 ## 🧱 Project Structure
 
 ### 📡 Networking
