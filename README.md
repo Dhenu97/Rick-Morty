@@ -1,73 +1,91 @@
-🛸 Rick & Morty
-📱 Rick & Morty iOS App
-A UIKit-based iOS application that fetches and displays characters, episodes, and locations from the Rick and Morty API. Built using a modular MVVM architecture, async/await for clean networking, and a scalable folder structure for easy maintenance. The app offers a fast, responsive UI with organized navigation between data types.
+# 🛸 Rick & Morty iOS App
 
-🔑 Key Features
-🧑‍🚀 Browse Rick and Morty characters, episodes, and locations
-📄 Detail views with complete metadata and styling
-🗺️ Location and episode explorer with navigation
-🧱 MVVM architecture with separation of concerns
-🌐 Async/await-based network layer
-💥 Modular codebase with scalable controller/view separation
-🧪 Unit testing supported for ViewModels
-📲 Adaptive layout support for iPhones
+A modular UIKit-based iOS application that fetches and displays characters, episodes, and locations from the [Rick and Morty API](https://rickandmortyapi.com/). Built with the MVVM architecture pattern and powered by `async/await` for modern and clean networking. The app showcases proper separation of concerns, reusable UI components, and scalable folder structure.
 
-🚀 Live Preview
+---
 
+## 🔑 Key Features
 
-🧱 Project Structure
-📡 Networking
-Component  Description
-CharacterApi.swift  Protocol defining character fetch logic
-RMCharacterApi.swift  Implements network logic using URLSession
-NetworkManager.swift  Shared fetcher using async/await and error handling
-ErrorClass.swift  Custom error enums for API failures
+🧑‍🚀 Browse characters in a dynamic grid view  
+📄 Detailed views for characters, episodes, and locations  
+🌐 Async API integration using `URLSession` with `async/await`  
+🧠 MVVM-based architecture for better maintainability  
+🧱 Modular codebase organized into View, ViewModel, Model, and Networking layers  
+🧪 Unit test-ready structure  
+📲 Adaptive UI optimized for various screen sizes
 
-🧠 ViewModel
-Component  Description
-CharacterVM.swift  Drives character data from API to controller
-EpisodeVM.swift  Handles episode fetching and view logic
+---
 
-🖼️ UI & Controllers
-ViewController  Description
-RMCharacterViewController  Displays a grid of characters
-RMEpisodeViewController  Lists episodes with tap navigation
-RMLocationViewController  Lists all locations
-RMDetailedVC  Shows details of a selected item
-CharacterCell.swift  Custom UI for character grid
-EpisodeCollectionCell.swift  Styled episode cell
+## 🧱 Project Structure
 
-🧪 Testing Plan
-Layer  Test Coverage
-✅ ViewModel  Validates mock fetch, loading state, and error flow
-✅ Model Decoding  Verifies decoding of API response models
+### 📡 Networking
 
+| Component             | Description                                      |
+|----------------------|--------------------------------------------------|
+| `CharacterApi.swift` | Protocol defining character-fetching behavior    |
+| `RMCharacterApi.swift` | Implements character fetch using `URLSession`   |
+| `NetworkManager.swift` | Shared service to decode JSON and handle errors |
+| `ErrorClass.swift`     | Centralized error enum for API failure handling |
 
-📲 How to Run
-Clone the repo:
+### 🧠 ViewModels
+
+| ViewModel           | Responsibility                                  |
+|---------------------|--------------------------------------------------|
+| `CharacterVM.swift` | Handles API calls and exposes character data     |
+| `EpisodeVM.swift`   | Manages episode fetching and view logic          |
+
+### 🖼️ ViewControllers
+
+| ViewController            | Description                                  |
+|---------------------------|----------------------------------------------|
+| `RMCharacterViewController` | Displays all characters in a grid          |
+| `RMEpisodeViewController`   | Shows list of episodes                     |
+| `RMLocationViewController`  | Lists locations with details               |
+| `RMDetailVC.swift`          | Detailed metadata display of selected item |
+| `CharacterCell.swift`       | Custom character tile in grid view         |
+
+---
+
+## 🧪 Testing Plan
+
+| Layer             | Test Coverage                              |
+|------------------|---------------------------------------------|
+| ✅ ViewModel      | Unit-tested with mocked services            |
+| ✅ Model Decoding | Ensures correct decoding of API responses   |
+| ⬜ UI Tests        | (Planned) for user interactions and flows   |
+
+---
+
+## 📲 How to Run
+
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/Dhenu97/Rick-Morty.git
+Open in Xcode:
 
 bash
 Copy
 Edit
-git clone https://github.com/Dhenu97/Rick-Morty.git
-Open the project in Xcode 15+
+cd Rick-Morty
+open Rick&Morty.xcodeproj
+Build & Run:
 
-Select Rick&Morty scheme
+Select a simulator (iOS 15+)
 
-Run on any iOS simulator or real device (iOS 15+)
+Run the app using Cmd + R
+
+🧪 How to Run Tests
+Select Rick&Morty scheme in Xcode
+
+Press Cmd + U or go to Product > Test
 
 📦 Tech Stack
 ✅ Swift 5.9
 ✅ UIKit
 ✅ MVVM Architecture
-✅ URLSession + async/await
-✅ XCTest
-✅ Modular file organization
+✅ URLSession with async/await
+✅ Modular code organization
 ✅ Xcode 15+
 
-👩‍💻 About the Author
+👨‍💻 Author
 Dhenu Sri
-
-
-
-
