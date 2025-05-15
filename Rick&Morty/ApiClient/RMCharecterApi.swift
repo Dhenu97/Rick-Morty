@@ -7,18 +7,13 @@
 
 import Foundation
 
-final class RMCharacterApi: CharacterApi {
-  func fetchCharacters() async throws -> CharacterResponse {
-    guard let url = URL(string: "\(ApiConstants.baseURL)\(Paths.character)") else {
-      throw ErrorClass.invalidResponse
-    }
-    do {
+final class RMCharacterApi: CharacterApiProtocol {
+    func fetchInitialCharacters() async throws -> CharacterResponse {
+        guard let url = URL(string: "\(ApiConstants.baseURL)\(Paths.character)") else {
+            throw ErrorClass.invalidResponse
+        }
 
-      let response: CharacterResponse = try await NetworkManager.shared.fetchData(from: url)
-      let encoder = JSONEncoder()
-      return response
-    } catch {
-      throw error
+        let response: CharacterResponse = try await NetworkManager.shared.fetchData(from: url)
+        return response
     }
-  }
 }

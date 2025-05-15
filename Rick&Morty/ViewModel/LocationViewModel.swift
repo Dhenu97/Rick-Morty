@@ -7,9 +7,19 @@
 
 import Foundation
 
+protocol LocationApiProtocol {
+  func fetchInitialCharacters() async throws -> LocationResponse
+}
 
 
 class LocationViewModel {
+  private let locationApi: LocationApiProtocol
+
+  init(locationApi: LocationApiProtocol = RMLocationApi()) {
+    self.locationApi = locationApi
+  }
+
+  
   private(set) var locationArray: [RMLocation] = []
   private(set) var nextPageUrl: URL?
   private var isLoadingMoreLocations = false
@@ -18,8 +28,7 @@ class LocationViewModel {
   func fetchInitialCharacters() {
       Task {
           do {
-            let api = RMLocationApi()
-            let response: LocationResponse = try await api.fetchLocations()
+            let response: LocationResponse = try await locationApi.fetchInitialCharacters()
 
             self.locationArray = response.results
               if let nextString = response.info.next, let nextURL = URL(string: nextString) {

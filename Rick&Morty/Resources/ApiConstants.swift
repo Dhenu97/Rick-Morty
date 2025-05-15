@@ -21,17 +21,3 @@ struct Paths {
 }
 
 
-
-// protocols
-
-protocol CharacterApi {
-    func fetchCharacters() async throws -> CharacterResponse
-}
-
-protocol LocationApi {
-    func fetchLocations() async throws -> LocationResponse
-}
-
-protocol EpisodeApi {
-  func fetchEpisodes() async throws -> EpisodeResponse
-}

@@ -49,9 +49,7 @@ class RMCharecterViewController: UIViewController {
     configureCollectionView()
     setupBinding()
     viewModel.fetchInitialCharacters()
-
     collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
-
     setupBinding()
     viewModel.fetchInitialCharacters()
   }

@@ -24,7 +24,6 @@ struct RMCharacter: Codable, Identifiable {
       let name: String
       let status: Status
       let species: String
-      let type: String?
       let gender: String
       let origin: Location?  
       let location: Location?

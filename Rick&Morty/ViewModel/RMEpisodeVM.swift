@@ -7,8 +7,18 @@
 
 import Foundation
 
+protocol EpisodeApiProtocol {
+  func fetchInitialCharacters() async throws -> EpisodeResponse
+}
+
 
 class RMEpisodeVM {
+  
+  private let episodeApi: EpisodeApiProtocol
+
+  init(episodeApi: EpisodeApiProtocol = RMEpisodeApi()) {
+    self.episodeApi = episodeApi
+  }
 
   private(set) var episodeArray: [RMEpisode] = []
   private(set) var nextPageUrl: URL?
@@ -19,8 +29,7 @@ class RMEpisodeVM {
   func fetchInitialCharacters() {
     Task {
       do {
-        let api = RMEpisodeApi()
-        let response: EpisodeResponse = try await api.fetchEpisodes()
+        let response: EpisodeResponse = try await episodeApi.fetchInitialCharacters()
 
         self.episodeArray = response.results
         print("episodeArray\(episodeArray)")

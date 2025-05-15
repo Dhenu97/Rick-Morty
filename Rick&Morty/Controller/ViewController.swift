@@ -29,8 +29,11 @@ final class ViewController: UITabBarController {
    let nav3 = UINavigationController(rootViewController: episodeVc)
 
    nav1.tabBarItem = UITabBarItem(title: "Charecters", image: UIImage(systemName: "person"), tag: 1)
-   nav2.tabBarItem = UITabBarItem(title: "Location", image: UIImage(systemName: "location"), tag: 2)
+   nav2.tabBarItem = UITabBarItem(title: "Locations", image: UIImage(systemName: "location"), tag: 2)
    nav3.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(systemName: "movieclapper"), tag: 3)
+   nav1.tabBarItem.accessibilityIdentifier = "Charecters"
+   nav2.tabBarItem.accessibilityIdentifier = "Locations"
+   nav3.tabBarItem.accessibilityIdentifier = "Episodes"
 
    for nav in [nav1, nav2, nav3] {
      nav.navigationBar.prefersLargeTitles = true

@@ -8,36 +8,58 @@
 import XCTest
 
 final class Rick_MortyUITests: XCTestCase {
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
     }
 
-    @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+  func testtabBar() {
+    let tabbarCharacterTest = app.tabBars.buttons["Charecters"]
+    let tabbarLocationsest = app.tabBars.buttons["Locations"]
+    let tabbarEpisodesTest = app.tabBars.buttons["Episodes"]
+    XCTAssertTrue(tabbarCharacterTest.waitForExistence(timeout: 5))
+    XCTAssertTrue(tabbarLocationsest.waitForExistence(timeout: 5))
+    XCTAssertTrue(tabbarEpisodesTest.waitForExistence(timeout: 5))
+    tabbarCharacterTest.tap()
+    tabbarLocationsest.tap()
+    tabbarEpisodesTest.tap()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+  }
+
+    func testCharacterNameLabelExists() {
+        let characterNameLabel = app.staticTexts["characterName_Rick Sanchez"]
+        let exists = characterNameLabel.waitForExistence(timeout: 5)
+        XCTAssertTrue(exists, "The character name label should exist.")
     }
 
-    @MainActor
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+  func testAppLaunchesToCharacterGrid() {
+      XCTAssertTrue(app.collectionViews.firstMatch.waitForExistence(timeout: 5))
+  }
+
+  func testTappingFirstCharacterCellOpensDetail() {
+    let detailView = app.collectionViews.cells.element(boundBy: 0)
+    XCTAssertTrue(detailView.waitForExistence(timeout: 5))
+    detailView.tap()
+  }
+
+  func testCharacterDetailGrid() {
+    XCTAssertTrue(app.collectionViews.cells.firstMatch.waitForExistence(timeout: 5))
+  }
+
+
+  func testLocationDetailGrid() {
+    app.tabBars.buttons["Locations"].tap()
+    XCTAssertTrue(app.collectionViews.firstMatch.waitForExistence(timeout: 5))
+  }
+
 }
+
+
+

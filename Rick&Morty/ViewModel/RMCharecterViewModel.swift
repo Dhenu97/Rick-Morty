@@ -7,7 +7,17 @@
 
 import Foundation
 
+protocol CharacterApiProtocol {
+    func fetchInitialCharacters() async throws -> CharacterResponse
+}
+
 class RMCharecterViewModel {
+
+  private let characterApi: CharacterApiProtocol
+
+  init(characterApi: CharacterApiProtocol = RMCharacterApi()) {
+      self.characterApi = characterApi
+  }
 
     private(set) var characters: [RMCharacter] = []
     private(set) var nextPageUrl: URL?
@@ -17,9 +27,7 @@ class RMCharecterViewModel {
     func fetchInitialCharacters() {
         Task {
             do {
-                let api = RMCharacterApi()
-                let response: CharacterResponse = try await api.fetchCharacters()
-
+              let response = try await characterApi.fetchInitialCharacters()
                 self.characters = response.results 
                 if let nextString = response.info.next, let nextURL = URL(string: nextString) {
                     self.nextPageUrl = nextURL

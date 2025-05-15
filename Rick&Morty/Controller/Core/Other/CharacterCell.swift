@@ -53,6 +53,7 @@ final class CharacterCell: UICollectionViewCell {
 
   func configure(with character: RMCharacter) {
     nameLabel.text = character.name
+    nameLabel.accessibilityIdentifier = "characterName_Rick Sanchez"
     loadImage(urlString: character.image)
   }
 

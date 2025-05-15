@@ -7,22 +7,13 @@
 
 import Foundation
 
-class RMLocationApi: LocationApi {
-  var loc: [RMLocation] = []
-  func fetchLocations() async throws -> LocationResponse {
-    guard let url = URL(string: "\(ApiConstants.baseURL)\(Paths.location)") else {
-      throw ErrorClass.invalidResponse
+final class RMLocationApi: LocationApiProtocol {
+  func fetchInitialCharacters() async throws -> LocationResponse {
+        guard let url = URL(string: "\(ApiConstants.baseURL)\(Paths.location)") else {
+            throw ErrorClass.invalidResponse
+        }
+
+    let response: LocationResponse = try await NetworkManager.shared.fetchData(from: url)
+        return response
     }
-    do {
-
-      let response: LocationResponse = try await NetworkManager.shared.fetchData(from: url)
-      let encoder = JSONEncoder()
-      return response
-    } catch {
-      throw error
-    }
-
-  }
-
-
 }
